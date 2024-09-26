@@ -1,0 +1,127 @@
+openapi: 3.0.0
+info:
+  title: Podcast Marketing Automation API
+  version: 1.0.0
+  description: API for managing podcasts, episodes, marketing content, and analytics in the Podcast Marketing Automation SaaS platform
+servers:
+  - url: https://api.podcastmarketing.com/v1
+paths:
+  /auth/token:
+    post:
+      summary: Obtain JWT token
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Successful authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+  /podcasts:
+    get:
+      summary: List podcasts
+      tags:
+        - Podcasts
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+        - in: query
+          name: limit
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Podcast'
+    post:
+      summary: Create a podcast
+      tags:
+        - Podcasts
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PodcastCreate'
+      responses:
+        '201':
+          description: Podcast created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Podcast'
+components:
+  schemas:
+    LoginRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+      required:
+        - email
+        - password
+    TokenResponse:
+      type: object
+      properties:
+        access:
+          type: string
+        refresh:
+          type: string
+    Podcast:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        coverImageUrl:
+          type: string
+        rssFeedUrl:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    PodcastCreate:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        rssFeedUrl:
+          type: string
+      required:
+        - title
+        - description
+        - rssFeedUrl
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
