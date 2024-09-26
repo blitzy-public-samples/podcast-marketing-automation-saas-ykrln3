@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: podcast-marketing-service
+  labels:
+    app: podcast-marketing
+spec:
+  selector:
+    app: podcast-marketing
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: ClusterIP
