@@ -1,0 +1,69 @@
+djangorestframework==3.12.4
+djangorestframework-simplejwt==4.8.0
+psycopg2-binary==2.9.1
+gunicorn==20.1.0
+dj-database-url==0.5.0
+python-dotenv==0.19.1
+boto3==1.18.63
+Pillow==8.3.2
+celery==5.1.2
+redis==3.5.3
+requests==2.26.0
+google-cloud-speech==2.9.0
+google-cloud-language==2.3.0
+openai==0.27.0
+tweepy==4.4.0
+facebook-sdk==3.1.0
+linkedin-api==0.1.7
+instagram-private-api==1.6.0
+django-cors-headers==3.10.0
+drf-yasg==1.20.0
+pytest==6.2.5
+pytest-django==4.4.0
+coverage==6.1.1
+
+# Core dependencies
+# Django - Web framework
+# djangorestframework - REST API toolkit
+# djangorestframework-simplejwt - JWT authentication
+# psycopg2-binary - PostgreSQL adapter
+# gunicorn - WSGI HTTP server
+
+# Configuration and environment
+# dj-database-url - Database URL configuration
+# python-dotenv - Environment variable management
+
+# AWS integration
+# boto3 - AWS SDK for Python
+
+# Image processing
+# Pillow - Python Imaging Library
+
+# Task queue and caching
+# celery - Distributed task queue
+# redis - Redis client and Celery broker
+
+# HTTP requests
+# requests - HTTP library
+
+# AI and NLP services
+# google-cloud-speech - Google Cloud Speech-to-Text
+# google-cloud-language - Google Cloud Natural Language
+# openai - OpenAI API client
+
+# Social media integrations
+# tweepy - Twitter API client
+# facebook-sdk - Facebook API client
+# linkedin-api - LinkedIn API client
+# instagram-private-api - Instagram Private API client
+
+# API documentation
+# drf-yasg - Yet Another Swagger Generator
+
+# Testing
+# pytest - Testing framework
+# pytest-django - Django plugin for pytest
+# coverage - Code coverage measurement
+
+# Development dependencies (consider moving to a separate requirements-dev.txt)
+# django-cors-headers - Handle CORS in development
